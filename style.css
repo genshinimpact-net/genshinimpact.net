@@ -9,16 +9,18 @@
 @keyframes bounce-in {
     0% {
         opacity: 0;
+        visibility: visible;
         transform: translateY(-50px); /* 从上方开始 */
     }
     50% {
-        opacity: 1;
         transform: translateY(10px); /* 弹跳到下方 */
     }
     70% {
         transform: translateY(-5px); /* 稍微向上回弹 */
     }
     100% {
+        opacity: 1;
+        visibility: visible;
         transform: translateY(0); /* 停在原位 */
     }
 }
@@ -34,26 +36,8 @@
     }
 }
 
-:root {
-    color-scheme: light dark;
-}
-
-/* 深色模式的自定义样式 */
-@media (prefers-color-scheme: dark) {
-    .nav-link, .site-footer {
-        background-color: rgba(0, 0, 0, 0.7);
-        color: #ffffff;
-    }
-
-    a {
-        color: #bb86fc; /* 深色模式下的紫色链接 */
-    }
-}
-
 .hidden {
-    opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease-in-out;
 }
 
 body {
@@ -72,6 +56,7 @@ body {
 h1 {
     color: #ffffff;
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    animation: bounce-in 0.3s ease-out forwards;
 }
 
 .nav-container {
@@ -91,6 +76,7 @@ h1 {
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     color: #000000;
+    animation: bounce-in 0.3s ease-out 0.3s forwards;
 }
 
 .nav-link.dark-mode {
@@ -103,6 +89,7 @@ h1 {
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     color: #ffffff;
+    animation: bounce-in 0.3s ease-out 0.3s forwards;
 }
 
 .nav-image {
@@ -121,6 +108,7 @@ h1 {
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     color: #000000;
+    animation: bounce-in 0.3s ease-out 0.6s forwards;
 }
 
 .site-footer.dark-mode {
@@ -133,6 +121,7 @@ h1 {
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     color: #ffffff;
+    animation: bounce-in 0.3s ease-out 0.6s forwards;
 }
 
 .footer-content {
