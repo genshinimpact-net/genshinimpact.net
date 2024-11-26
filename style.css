@@ -1,0 +1,94 @@
+@font-face {
+    font-family: "GenshinImpactZhLv1";
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url(./gichn_mini_zhlv1.ttf) format("TrueType");
+}
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px); /* 从上方开始 */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(10px); /* 弹跳到下方 */
+    }
+    70% {
+        transform: translateY(-5px); /* 稍微向上回弹 */
+    }
+    100% {
+        transform: translateY(0); /* 停在原位 */
+    }
+}
+
+body {
+    font-family: "GenshinImpactZhLv1", sans-serif;
+    background: url('./img/genshinLaunch.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    animation: bounce-in 1s ease-out forwards;
+}
+
+.nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px 10px;
+    text-align: center;
+    margin-top: auto;
+    border: black solid 1px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    animation: bounce-in 1s ease-out forwards;
+}
+
+.nav-image {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.site-footer {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px 10px;
+    text-align: center;
+    margin-top: auto;
+    border: black solid 1px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    animation: bounce-in 1s ease-out forwards;
+}
+
+.footer-content {
+    margin: 0 auto;
+}
+
+.social-links {
+    margin: 10px 0;
+}
+
+@media (max-width: 1000px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
