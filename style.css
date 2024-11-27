@@ -148,7 +148,11 @@ a.dark-mode {
     color: #bb86fc; /* 深色模式下的紫色链接 */
 }
 
-@media (max-width: 1000px) {
+.no-underline {
+    text-decoration: none;
+}
+
+@media (max-width: 1400px) {
     .nav-container {
         flex-direction: column;
         align-items: center;

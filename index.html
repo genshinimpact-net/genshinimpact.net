@@ -9,7 +9,7 @@
 	<body>
 		<h1 class="hidden" id="title">
 			嘿，你来了！这里是一张起始页，由于站长们暂时想不起来这里放啥比较好，所以就诞生出了此页面~</h1>
-		<br />
+		<br/>
 		<div class="nav-container hidden" id="nav-container">
 			<div class="nav-link">
 				<img src="./img/yu01.jpg" alt="宇的图片" class="nav-image">
@@ -25,7 +25,7 @@
 			</div>
 			<div class="nav-link">
 				<img src="./img/yuanshen_logo.jpg" alt="原神！启动！" class="nav-image">
-				<h2><a href="https://ys.mihoyo.com/" target="_blank">原神！启动！</a></h2>
+				<h2><a id="genshinSite" href="about:blank" target="_blank">原神！启动！</a></h2>
 			</div>
 		</div>
 		<footer class="site-footer hidden" id="footer">
@@ -35,17 +35,42 @@
 					href="https://www.hoyoverse.com/">HoYoverse</a>）的注册商标，本站内容与米哈游无任何关联
 			</div>
 			<div class="social-links">
-				<a href="https://github.com/genshinimpact-net" target="_blank" style="margin-right: 150px">
-					<svg id="github" height="40" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="40" data-view-component="true">
-						<path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
-					</svg>
+				<a class="no-underline" href="https://github.com/genshinimpact-net" target="_blank" style="margin-right: 150px">
+					<img src="./img/github.svg" alt="GitHub" id="github" style="width: 40px; height: 40px;"/>
 				</a>
 				<input type="image" src="./img/light.svg" alt="Light Mode" id="theme-toggle"
 					   style="height: 40px; width: 40px;"/>
 			</div>
 		</footer>
 		<script type="text/javascript">
+            // 获取浏览器的默认语言
+            const userLanguage = navigator.language || navigator.userLanguage;
+            const site = document.getElementById('genshinSite');
+
+            // 创建一个语言代码到网址的映射对象
+            const languageMap = {
+                'zh': 'https://ys.mihoyo.com/',
+                'en': 'https://genshin.hoyoverse.com/en/',
+                'ja': 'https://genshin.hoyoverse.com/jp/',
+                'ko': 'https://genshin.hoyoverse.com/ko/',
+                'it': 'https://genshin.hoyoverse.com/it/',
+                'de': 'https://genshin.hoyoverse.com/de/',
+                'fr': 'https://genshin.hoyoverse.com/fr/',
+                'ru': 'https://genshin.hoyoverse.com/ru/',
+                'es': 'https://genshin.hoyoverse.com/es/',
+                'id': 'https://genshin.hoyoverse.com/id/',
+                'pt': 'https://genshin.hoyoverse.com/pt/',
+                'th': 'https://genshin.hoyoverse.com/th/',
+                'tr': 'https://genshin.hoyoverse.com/tr/',
+                'vi': 'https://genshin.hoyoverse.com/vi/'
+            };
+
+            // 获取浏览器的语言代码并匹配
+            const userLanguagePrefix = userLanguage.split('-')[0];  // 获取语言代码前缀（例如: 'zh', 'en'）
+            site.href = languageMap[userLanguagePrefix] || languageMap['en'];  // 默认使用英文网址
+
             const themeToggleButton = document.getElementById("theme-toggle");
+            const github = document.getElementById("github");
 
             // 检查用户上次选择的主题（如果有的话）
             const currentTheme = localStorage.getItem("theme");
@@ -53,9 +78,11 @@
             if (currentTheme === "dark") {
                 document.body.classList.add("dark-mode");
                 themeToggleButton.src = "./img/dark.svg";  // 切换为深色模式图标
+				github.src = "./img/github_dark.svg";
             } else {
                 document.body.classList.remove("dark-mode");
                 themeToggleButton.src = "./img/light.svg";  // 切换为浅色模式图标
+                github.src = "./img/github.svg";
             }
 
             // 切换主题并保存用户选择
@@ -66,6 +93,7 @@
 
                 // 根据当前主题切换按钮图标
                 themeToggleButton.src = isDarkMode ? "./img/dark.svg" : "./img/light.svg";
+                github.src = isDarkMode ? "./img/github_dark.svg" : "./img/github.svg";
 
                 // 保存用户的主题选择到 localStorage
                 localStorage.setItem("theme", isDarkMode ? "dark" : "light");
@@ -74,7 +102,6 @@
                 const navLinks = document.querySelectorAll(".nav-link");
                 const footer1 = document.querySelector(".site-footer");
                 const links = document.querySelectorAll("a");
-                const github = document.getElementById("github");
 
                 navLinks.forEach(link => {
                     link.classList.toggle("dark-mode", isDarkMode);
@@ -84,8 +111,6 @@
                 links.forEach(link => {
                     link.classList.toggle("dark-mode", isDarkMode);
                 });
-                // 根据当前主题切换 stroke 颜色
-                github.setAttribute("fill", isDarkMode ? "#ffffff" : "#000000");
             });
 		</script>
 	</body>
