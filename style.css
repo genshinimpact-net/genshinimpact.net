@@ -40,21 +40,19 @@
 
 :root {
     color-scheme: light dark;
+    --primary: #1e90ff;
+    --primary-hover: #399cff;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-text: #000;
+    --card-border-color: #0000002a;
+}
+
+body.dark-mode {
     --primary: #bb86fc;
     --primary-hover: #cea7ff;
     --card-bg: rgba(0, 0, 0, 0.7);
     --card-text: #fff;
     --card-border-color: #ffffff3a;
-}
-
-@media(prefers-color-scheme:light){
-    :root {
-        --primary: #1e90ff;
-        --primary-hover: #399cff;
-        --card-bg: rgba(255, 255, 255, 0.7);
-        --card-text: #000;
-        --card-border-color: #0000002a;
-    }
 }
 
 .hidden {
