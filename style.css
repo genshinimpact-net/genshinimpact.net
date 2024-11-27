@@ -28,13 +28,32 @@
 @keyframes blurFadeIn {
     0% {
         backdrop-filter: blur(0); /* 从不模糊开始 */
-        -webkit-backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0);
         opacity: 0; /* 从透明开始 */
     }
     100% {
         backdrop-filter: blur(5px); /* 结束时模糊5px */
         -webkit-backdrop-filter: blur(5px);
         opacity: 1; /* 最终完全可见 */
+    }
+}
+
+:root {
+    color-scheme: light dark;
+    --primary: #bb86fc;
+    --primary-hover: #cea7ff;
+    --card-bg: rgba(0, 0, 0, 0.7);
+    --card-text: #fff;
+    --card-border-color: #ffffff3a;
+}
+
+@media(prefers-color-scheme:light){
+    :root {
+        --primary: #1e90ff;
+        --primary-hover: #399cff;
+        --card-bg: rgba(255, 255, 255, 0.7);
+        --card-text: #000;
+        --card-border-color: #0000002a;
     }
 }
 
@@ -61,30 +80,44 @@ h1 {
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     animation: bounce-in 0.3s ease-out forwards;
     -webkit-animation: bounce-in 0.3s ease-out forwards;
+    max-width: min(100%,48rem);
 }
 
 .nav-container {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    gap: 30px;
+    flex-direction: row; */
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(8rem,1fr));
+    width: 100%;
+    max-width: min(100%,34rem);
 }
 
 .nav-link {
-    background-color: rgba(255, 255, 255, 0.7);
+    /* background-color: rgba(255, 255, 255, 0.7); */
     display: flex;
     padding: 20px 10px;
     text-align: center;
     margin-top: auto;
-    border: black solid 1px;
-    border-radius: 20px;
+    /* border: black solid 1px; */
+    /* border-radius: 20px; */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
-    color: #000000;
     animation: bounce-in 0.3s ease-out 0.3s forwards;
     -webkit-animation: bounce-in 0.3s ease-out 0.3s forwards;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    color: var(--card-text);
+    border: 1px solid var(--card-border-color);
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
 }
 
-.nav-link.dark-mode {
+/* .nav-link.dark-mode {
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     padding: 20px 10px;
@@ -95,30 +128,36 @@ h1 {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     color: #ffffff;
     animation: bounce-in 0.3s ease-out 0.3s forwards;
-    -webkit-animation: bounce-in 0.3s ease-out 0.3s forwards;
-}
+} */
 
 .nav-image {
     width: 60px;
     height: 60px;
     margin-right: 10px;
+    border-radius: .75rem;
 }
 
 .site-footer {
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 20px 10px;
+    width: min(100vw,100%);
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    /* padding: 20px 10px; */
     text-align: center;
     margin-top: auto;
-    border: black solid 1px;
-    border-radius: 20px;
+    /* border: black solid 1px; */
+    border-radius: 2rem 2rem 0 0;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
-    color: #000000;
+    /* color: #000000; */
     animation: bounce-in 0.3s ease-out 0.6s forwards;
     -webkit-animation: bounce-in 0.3s ease-out 0.6s forwards;
+    box-sizing: border-box;
+    border: 1px solid var(--card-border-color);
+    color: var(--card-text);
+    background-color: var(--card-bg);
+    padding: 1rem 1rem .5rem;
+    backdrop-filter: blur(10px);
 }
 
-.site-footer.dark-mode {
+/* .site-footer.dark-mode {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px 10px;
@@ -129,23 +168,32 @@ h1 {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     color: #ffffff;
     animation: bounce-in 0.3s ease-out 0.6s forwards;
-    -webkit-animation: bounce-in 0.3s ease-out 0.6s forwards;
-}
+} */
 
 .footer-content {
     margin: 0 auto;
 }
 
 .social-links {
-    margin: 10px 0;
+    /* margin: 10px 0; */
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    margin: 1rem;
 }
 
 a {
-    color: #1e90ff; /* 浅色模式下的蓝色链接 */
+    text-decoration: none;
+    color: var(--primary);
+    transition: color .25s ease-in-out;
 }
 
-a.dark-mode {
-    color: #bb86fc; /* 深色模式下的紫色链接 */
+a:hover {
+    color: var(--primary-hover);
+}
+
+svg {
+    fill: currentColor;
 }
 
 .no-underline {
