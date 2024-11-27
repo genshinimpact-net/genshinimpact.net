@@ -175,7 +175,11 @@ h1 {
 }
 
 .social-links {
-    margin: 10px 0;
+    /* margin: 10px 0; */
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    margin: 1rem;
 }
 
 a {
