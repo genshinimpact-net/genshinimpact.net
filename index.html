@@ -38,8 +38,8 @@
 				<a class="no-underline" href="https://github.com/genshinimpact-net" target="_blank">
 					<img src="./img/github.svg" alt="GitHub" id="github" style="width: 40px; height: 40px;"/>
 				</a>
-				<!-- <input type="image" src="./img/light.svg" alt="Light Mode" id="theme-toggle"
-					   style="height: 40px; width: 40px;"/> -->
+				<input type="image" src="./img/light.svg" alt="Light Mode" id="theme-toggle"
+					   style="height: 40px; width: 40px;"/>
 			</div>
 		</footer>
 		<script type="text/javascript">
@@ -73,14 +73,17 @@
             const github = document.getElementById("github");
 
             // 检查用户上次选择的主题（如果有的话）
-            const currentTheme = localStorage.getItem("theme");
+            const currentTheme = localStorage.getItem("theme") ?? 
+                matchMedia('(prefers-color-scheme:dark)').matches ? "dark" : "light";
 
             if (currentTheme === "dark") {
                 document.body.classList.add("dark-mode");
+                document.documentElement.classList.add("dark");
                 themeToggleButton.src = "./img/dark.svg";  // 切换为深色模式图标
 				github.src = "./img/github_dark.svg";
             } else {
                 document.body.classList.remove("dark-mode");
+                document.documentElement.classList.remove("dark");
                 themeToggleButton.src = "./img/light.svg";  // 切换为浅色模式图标
                 github.src = "./img/github.svg";
             }
