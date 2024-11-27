@@ -69,51 +69,47 @@
             const userLanguagePrefix = userLanguage.split('-')[0];  // 获取语言代码前缀（例如: 'zh', 'en'）
             site.href = languageMap[userLanguagePrefix] || languageMap['en'];  // 默认使用英文网址
 
-            const themeToggleButton = document.getElementById("theme-toggle");
-            const github = document.getElementById("github");
+            document.addEventListener("DOMContentLoaded",()=>{
+                const themeToggleButton = document.getElementById("theme-toggle");
+                const github = document.getElementById("github");
 
-            // 检查用户上次选择的主题（如果有的话）
-            const currentTheme = localStorage.getItem("theme") ?? 
-                matchMedia('(prefers-color-scheme:dark)').matches ? "dark" : "light";
+                const getBrowserDarkMode = () => matchMedia('(prefers-color-scheme:dark)').matches ? "dark" : "light";
+                const changeTheme = () => {
+                    const currentTheme = localStorage.getItem("theme") ?? getBrowserDarkMode();
+                    if (currentTheme === "dark") {
+                        document.body.classList.add("dark-mode");
+                        document.documentElement.classList.add("dark");
+                        themeToggleButton.src = "./img/dark.svg";  // 切换为深色模式图标
+                        github.src = "./img/github_dark.svg";
+                    } else {
+                        document.body.classList.remove("dark-mode");
+                        document.documentElement.classList.remove("dark");
+                        themeToggleButton.src = "./img/light.svg";  // 切换为浅色模式图标
+                        github.src = "./img/github.svg";
+                    }
+                }
 
-            if (currentTheme === "dark") {
-                document.body.classList.add("dark-mode");
-                document.documentElement.classList.add("dark");
-                themeToggleButton.src = "./img/dark.svg";  // 切换为深色模式图标
-				github.src = "./img/github_dark.svg";
-            } else {
-                document.body.classList.remove("dark-mode");
-                document.documentElement.classList.remove("dark");
-                themeToggleButton.src = "./img/light.svg";  // 切换为浅色模式图标
-                github.src = "./img/github.svg";
-            }
-
-            // 切换主题并保存用户选择
-            themeToggleButton.addEventListener("click", (event) => {
-                event.preventDefault(); // 阻止表单提交的默认行为
-
-                const isDarkMode = document.body.classList.toggle("dark-mode");
-
-                // 根据当前主题切换按钮图标
-                themeToggleButton.src = isDarkMode ? "./img/dark.svg" : "./img/light.svg";
-                github.src = isDarkMode ? "./img/github_dark.svg" : "./img/github.svg";
-
-                // 保存用户的主题选择到 localStorage
-                localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-
-                // 更新导航栏和页脚的主题
-                const navLinks = document.querySelectorAll(".nav-link");
-                const footer1 = document.querySelector(".site-footer");
-                const links = document.querySelectorAll("a");
-
-                navLinks.forEach(link => {
-                    link.classList.toggle("dark-mode", isDarkMode);
+                matchMedia('(prefers-color-scheme:dark)').addEventListener("change",()=>{
+                    if(!localStorage.getItem("theme")){
+                        changeTheme();
+                    }
                 });
 
-                footer1.classList.toggle("dark-mode", isDarkMode);
-                links.forEach(link => {
-                    link.classList.toggle("dark-mode", isDarkMode);
+                // 切换主题并保存用户选择
+                themeToggleButton.addEventListener("click", (event) => {
+                    const isDarkMode = document.body.classList.contains("dark-mode");
+
+                    let toggleResult = isDarkMode ? "light" : "dark";
+                    if(toggleResult === getBrowserDarkMode()){ // 如果切换结果和浏览器主题一致就跟随浏览器，否则覆盖
+                        localStorage.removeItem("theme");
+                    } else {
+                        localStorage.setItem("theme", toggleResult);
+                    }
+
+                    changeTheme();
                 });
+
+                changeTheme();
             });
 		</script>
 	</body>
