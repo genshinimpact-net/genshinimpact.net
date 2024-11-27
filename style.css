@@ -196,7 +196,11 @@ svg {
     fill: currentColor;
 }
 
-@media (max-width: 1000px) {
+.no-underline {
+    text-decoration: none;
+}
+
+@media (max-width: 1400px) {
     .nav-container {
         flex-direction: column;
         align-items: center;
