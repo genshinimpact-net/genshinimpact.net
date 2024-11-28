@@ -60,7 +60,7 @@ body.dark-mode {
 }
 
 body {
-    font-family: "GenshinImpactZhLv1", sans-serif;
+    font-family: "GenshinImpactZhLv1", "Arial", sans-serif;
     background: url('./img/genshinLaunch.jpg') no-repeat center center fixed;
     background-size: cover;
     animation: blurFadeIn 1s ease-out forwards;
@@ -87,9 +87,11 @@ h1 {
     flex-direction: row; */
     gap: 1rem;
     display: grid;
+    grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr);
     grid-template-columns: repeat(auto-fill,minmax(8rem,1fr));
     width: 100%;
-    max-width: min(100%,34rem);
+    max-width: min(100%, 34rem);
+    max-height: calc(100vh - 6rem);
 }
 
 .nav-link {
