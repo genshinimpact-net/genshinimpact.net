@@ -108,12 +108,13 @@ h1:hover {
     flex-wrap: wrap;
     flex-direction: row; */
     margin: auto 0;
-    gap: 7px;
+    gap: 10px;
     display: grid;
     grid-template-rows: repeat(auto-fill,1fr);
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
     width: 90%;
     max-width: min(100%, 68rem);
+    height: auto;
     /*max-height: calc(100vh - 6rem);*/
     padding: 10px;
 }
@@ -121,7 +122,10 @@ h1:hover {
 .nav-link {
     /* background-color: rgba(255, 255, 255, 0.7); */
     display: flex;
+    height: 13rem;
     padding: 20px 10px;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     margin-top: auto;
     /* border: black solid 1px; */
@@ -130,10 +134,7 @@ h1:hover {
     animation: bounce-in 0.3s ease-out 0.3s forwards;
     -webkit-animation: bounce-in 0.3s ease-out 0.3s forwards;
     box-sizing: border-box;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
-    align-items: center;
     color: var(--card-text);
     border: 1px solid var(--card-border-color);
     background-color: var(--card-bg);
