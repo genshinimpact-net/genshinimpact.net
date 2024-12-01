@@ -82,12 +82,22 @@ body.dark-mode {
 }
 
 h1 {
-    color: #cdd6f4;
+    color: var(--card-text);
     margin: 10px;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    background-color: var(--card-bg);
+    padding: 10px;
+    font-size: 28px;
+    border-radius: 0.8rem;
+    border: 1px solid var(--card-border-color);
+    box-shadow: 5px 5px 10px var(--card-shadow);
     animation: bounce-in 0.3s ease-out forwards;
     -webkit-animation: bounce-in 0.3s ease-out forwards;
-    max-width: min(100%,48rem);
+    max-width: min(100%,68rem);
+    transition: 0.4s;
+}
+
+h1:hover {
+    background-color: var(--card-hover);
 }
 
 .nav-container {
@@ -95,13 +105,12 @@ h1 {
     flex-wrap: wrap;
     flex-direction: row; */
     margin: auto 0;
-    margin-bottom: 30px;
     gap: 7px;
     display: grid;
-    grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr);
+    grid-template-rows: repeat(auto-fill,1fr);
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
     width: 90%;
-    max-width: min(100%, 34rem);
+    max-width: min(100%, 68rem);
     max-height: calc(100vh - 6rem);
 }
 
