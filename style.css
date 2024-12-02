@@ -101,6 +101,7 @@ h1 {
 
 h1:hover {
     background-color: var(--card-hover);
+    transition: 0.4s;
 }
 
 .nav-container {
@@ -146,6 +147,7 @@ h1:hover {
 
 .nav-link:hover {
     background-color: var(--card-hover);
+    transition: 0.4s;
 }
 
 /*.nav-link.dark-mode {
@@ -191,6 +193,7 @@ h1:hover {
 
 .site-footer:hover {
     background-color: var(--card-hover);
+    transition: 0.4s;
 }
 
 /* .site-footer.dark-mode {
