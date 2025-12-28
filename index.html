@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>初次见面，你好！</title>
-		<link rel="stylesheet" href="./style.css">
-	</head>
-	<body>
-            <h1 class="hidden" id="title">
-			嘿，你来了！这里是一张起始页，由于站长们暂时想不起来这里放啥比较好，所以就诞生出了此页面~</h1>
-		<br/>
-		<div class="nav-container hidden" id="nav-container">
-			<div class="nav-link">
-				<img src="./img/yu01.jpg" alt="宇的图片" class="nav-image">
-				<h2>宇的<a href="https://yu01.icu" target="_blank">个人主页</a></h2>
-			</div>
-			<div class="nav-link">
-				<img src="./img/0xarch.jpg" alt="0xarch的图片" class="nav-image">
-				<h2>0xarch (Soloev)的<a href="https://0xarch.me" target="_blank">个人主页</a></h2>
-			</div>
-			<div class="nav-link">
-				<img src="./img/nahida.png" alt="YuanRetro的图片" class="nav-image">
-				<h2>YuanRetro的<a href="https://yuanshen.dev" target="_blank">个人主页</a></h2>
-			</div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>初次见面，你好！</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1 class="hidden" id="title">
+            嘿，你来了！这里是一张起始页，由于站长们暂时想不起来这里放啥比较好，所以就诞生出了此页面~</h1>
+        <br/>
+        <div class="nav-container hidden" id="nav-container">
             <div class="nav-link">
-				<img src="./img/silvaire.jpg" alt="Silvaire 的图片" class="nav-image">
-				<h2>Silvaire 的<a href="https://qwq.blue" target="_blank">个人主页</a></h2>
-			</div>
-			<div class="nav-link">
-				<img src="./img/yuanshen_logo.jpg" alt="原神！启动！" class="nav-image">
-				<h2><a id="genshinSite" href="about:blank" target="_blank">原神！启动！</a></h2>
-			</div>
-		</div>
-		<footer class="site-footer hidden" id="footer">
-			<div class="footer-content">
+                <img src="./img/yu01.jpg" alt="宇的图片" class="nav-image">
+                <h2>宇的<a href="https://yu01.icu" target="_blank">个人主页</a></h2>
+            </div>
+            <div class="nav-link">
+                <img src="./img/0xarch.jpg" alt="0xarch的图片" class="nav-image">
+                <h2>0xarch (Soloev)的<a href="https://0xarch.github.io" target="_blank">个人主页</a></h2>
+            </div>
+            <div class="nav-link">
+                <img src="./img/nahida.png" alt="YuanRetro的图片" class="nav-image">
+                <h2>YuanRetro的<a href="https://yuanshen.dev" target="_blank">个人主页</a></h2>
+            </div>
+            <div class="nav-link">
+                <img src="./img/silvaire.jpg" alt="Silvaire的图片" class="nav-image">
+                <h2>Silvaire 的<a href="https://qwq.blue" target="_blank">个人主页</a></h2>
+            </div>
+            <div class="nav-link">
+                <img src="./img/irminsul.png" alt="Irminsul的图片" class="nav-image">
+                <h2><a href="https://irminsul.cn" target="_blank">世界树搜索</a></h2>
+            </div>
+            <div class="nav-link">
+                <img src="./img/yuanshen_logo.jpg" alt="原神！启动！" class="nav-image">
+                <h2><a id="genshinSite" href="about:blank" target="_blank">原神！启动！</a></h2>
+            </div>
+        </div>
+        <div class="cd-player" onclick="playMusic(false)" ondblclick="playMusic()" id="cd-player">
+            <div class="cd-disc">
+                <div class="cd-reflect"></div>
+                <div class="cd-label"></div>
+                <div class="cd-axis"></div>
+            </div>
+        </div>
+        <footer class="site-footer hidden" id="footer">
+            <div class="footer-content">
                 &copy; www.genshinimpact.net team 2024-2025 <br/>
-				“原神” “Genshin Impact"等为<a href="https://www.mihoyo.com">米哈游</a>（<a
-					href="https://www.hoyoverse.com/">HoYoverse</a>）的注册商标，本站内容与米哈游无任何关联<br />
-				<a href="https://icp.gov.moe/?keyword=20250013" target="_blank">萌ICP备20250013号</a>
-			</div>
-			<div class="social-links">
-				<a class="no-underline" href="https://github.com/genshinimpact-net" target="_blank">
-					<img src="./img/github.svg" alt="GitHub" id="github" style="width: 40px; height: 40px;"/>
-				</a>
-				<input type="image" src="./img/light.svg" alt="Light Mode" id="theme-toggle"
-					   style="height: 40px; width: 40px;"/>
-			</div>
-            <a href="https://info.flagcounter.com/QeCN"><img src="https://s01.flagcounter.com/mini/QeCN/bg_FFFFFF/txt_000000/border_CCCCCC/flags_0/" alt="Flag Counter" border="0"></a>
-		</footer>
-		<script type="text/javascript">
+                “原神” “Genshin Impact"等为<a href="https://www.mihoyo.com">米哈游</a>（<a
+                    href="https://www.hoyoverse.com/">HoYoverse</a>）的注册商标，本站内容与米哈游无任何关联<br/>
+                <a href="https://icp.gov.moe/?keyword=20250013" target="_blank">萌ICP备20250013号</a>
+            </div>
+            <div class="social-links">
+                <a class="no-underline" href="https://github.com/genshinimpact-net" target="_blank">
+                    <img src="./img/github.svg" alt="GitHub" id="github" style="width: 40px; height: 40px;"/>
+                </a>
+                <input type="image" src="./img/light.svg" alt="Light Mode" id="theme-toggle"
+                       style="height: 40px; width: 40px;"/>
+            </div>
+            <a href="https://info.flagcounter.com/QeCN"><img
+                    src="https://s01.flagcounter.com/mini/QeCN/bg_FFFFFF/txt_000000/border_CCCCCC/flags_0/"
+                    alt="Flag Counter" border="0"></a>
+        </footer>
+        <script type="text/javascript">
             // 获取浏览器的默认语言
             const userLanguage = navigator.language || navigator.userLanguage;
             const site = document.getElementById('genshinSite');
@@ -75,7 +88,7 @@
             const userLanguagePrefix = userLanguage.split('-')[0];  // 获取语言代码前缀（例如: 'zh', 'en'）
             site.href = languageMap[userLanguagePrefix] || languageMap['en'];  // 默认使用英文网址
 
-            document.addEventListener("DOMContentLoaded",()=>{
+            document.addEventListener("DOMContentLoaded", () => {
                 const themeToggleButton = document.getElementById("theme-toggle");
                 const github = document.getElementById("github");
 
@@ -95,8 +108,8 @@
                     }
                 }
 
-                matchMedia('(prefers-color-scheme:dark)').addEventListener("change",()=>{
-                    if(!localStorage.getItem("theme")){
+                matchMedia('(prefers-color-scheme:dark)').addEventListener("change", () => {
+                    if (!localStorage.getItem("theme")) {
                         changeTheme();
                     }
                 });
@@ -106,7 +119,7 @@
                     const isDarkMode = document.body.classList.contains("dark-mode");
 
                     let toggleResult = isDarkMode ? "light" : "dark";
-                    if(toggleResult === getBrowserDarkMode()){ // 如果切换结果和浏览器主题一致就跟随浏览器，否则覆盖
+                    if (toggleResult === getBrowserDarkMode()) { // 如果切换结果和浏览器主题一致就跟随浏览器，否则覆盖
                         localStorage.removeItem("theme");
                     } else {
                         localStorage.setItem("theme", toggleResult);
@@ -117,6 +130,42 @@
 
                 changeTheme();
             });
-		</script>
-	</body>
+        </script>
+        <script>
+            const maxTrackID = 5;
+            const trackRegions = ["提瓦特", "蒙德", "璃月", "稻妻", "须弥", "枫丹"];
+            const trackRegionsEn = ["Teyvat", "Mondstadt", "Liyue", "Inazuma", "Sumeru", "Fontaine"];
+            let currentTrackID = 0;
+            let isInitialized = true;
+            let isPlaying = true;
+
+            function playMusic(t = true) {
+                if (t) {
+                    if (isInitialized) {
+                        isInitialized = false;
+                        let audioElement = document.createElement("audio");
+                        audioElement.style.position = "absolute";
+                        audioElement.style.top = "-1000px"; // 隐藏音频元素
+                        audioElement.setAttribute("id", "player");
+                        audioElement.setAttribute("autoplay", "autoplay");
+                        audioElement.setAttribute("loop", "loop");
+                        audioElement.setAttribute("src", "./music/Teyvat.mp3");
+                        document.body.appendChild(audioElement);
+                        document.getElementById("cd-player").title = "单击以" + (isPlaying ? "暂停" : "继续") + "\n双击以切换音乐\n当前 BGM 地域：" + trackRegions[currentTrackID];
+                    } else {
+                        currentTrackID = (currentTrackID < maxTrackID) ? (currentTrackID + 1) : 0;
+                        document.getElementById("player").src = "./music/" + trackRegionsEn[currentTrackID] + ".mp3";
+                        document.getElementById("cd-player").title = "单击以" + (isPlaying ? "暂停" : "继续") + "\n双击以切换音乐\n当前 BGM 地域：" + trackRegions[currentTrackID];
+                        return (isPlaying ? document.getElementById("player").play() : document.getElementById("player").pause());
+                    }
+                } else {
+                    isPlaying = !isPlaying;
+                    document.getElementById("cd-player").title = "单击以" + (isPlaying ? "暂停" : "继续") + "\n双击以切换音乐\n当前 BGM 地域：" + trackRegions[currentTrackID];
+                    return (isPlaying ? document.getElementById("player").play() : document.getElementById("player").pause());
+                }
+            }
+
+            playMusic();
+        </script>
+    </body>
 </html>
